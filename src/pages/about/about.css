@@ -1,0 +1,104 @@
+.about_wrapper {
+  padding: 60px 0;
+  background-color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Tiêu đề Extenda 30 Deca */
+.about-title {
+  font-family: 'Extenda-30Deca', sans-serif;
+  /* font-size: 8rem; */
+  color: #a32a2a;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  line-height: 0.9;
+}
+
+.about-layout {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* Sidebar Icon dọc */
+.about-sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: #5c2c2c;
+  width: 80px;
+  border-radius: 5px;
+}
+
+.side-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  color: #fff;
+  font-size: 10px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  cursor: pointer;
+}
+
+.side-item.active { background-color: #a32a2a; }
+
+/* Nội dung văn bản */
+.about-text {
+  flex: 1;
+  color: #333;
+  line-height: 1.8;
+  font-size: 16px;
+  text-align: justify;
+}
+
+.about-text p { margin-bottom: 20px; }
+
+/* Cụm ảnh bên phải */
+.about-images {
+  flex: 1.2;
+  display: flex;
+  gap: 15px;
+  height: 600px;
+}
+
+.img-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.img-item {
+  width: 100%;
+  height: 45%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+}
+
+.img-item.tall { height: 55%; }
+
+/* === RESPONSIVE === */
+
+@media screen and (max-width: 1024px) {
+  .about-layout { flex-direction: column; }
+  .about-title { font-size: 5rem; }
+  .about-sidebar {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+  }
+  .about-images { width: 100%; height: 400px; }
+}
+
+@media screen and (max-width: 480px) {
+  .about-title { font-size: 3.5rem; }
+  .about-text { font-size: 14px; }
+  .about-images { display: none; } /* Ẩn ảnh trên mobile nhỏ để tập trung vào text */
+}
