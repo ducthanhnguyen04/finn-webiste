@@ -1,0 +1,121 @@
+.main-header {
+  background-color: #ffffff;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo-circle {
+  background-color: #a32a2a;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.1;
+  text-decoration: none;
+}
+.logo-box a { text-decoration: none; }
+
+.logo-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav-menu a, .lang-switch {
+  text-decoration: none;
+  color: #5c2c2c; 
+  font-weight: 600;
+  font-size: 20px;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.nav-menu a:hover {
+  color: #a32a2a;
+}
+
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 1001; /* Đảm bảo nút luôn nổi lên trên menu khi mở */
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #5c2c2c; /* Màu của thanh ngang */
+  transition: all 0.3s ease;
+}
+
+/* Kích hoạt Media Query cho màn hình nhỏ (Tablet/Mobile) */
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: flex; /* Hiện nút hamburger */
+  }
+
+  .nav-menu {
+    /* Đổi menu ngang thành dọc và ẩn đi */
+    position: absolute;
+    top: 80px; /* Canh khoảng cách bằng chiều cao header */
+    left: -100%; /* Giấu nó sang hẳn bên trái màn hình */
+    flex-direction: column;
+    background-color: #ffffff;
+    width: 100%;
+    text-align: center;
+    transition: 0.4s ease; /* Hiệu ứng trượt mượt mà */
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    padding: 30px 0;
+    gap: 30px;
+    z-index: 1000;
+  }
+
+  /* Khi được click (thêm class .active), trượt từ trái vào */
+  .nav-menu.active {
+    left: 0; 
+  }
+
+  /* Làm chữ to hơn một chút trên mobile cho dễ bấm */
+  .nav-menu a, .lang-switch {
+    font-size: 18px; 
+    display: block;
+    width: 100%;
+  }
+
+  /* --- Hiệu ứng biến Hamburger thành chữ X (Tùy chọn cho đẹp) --- */
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+}
