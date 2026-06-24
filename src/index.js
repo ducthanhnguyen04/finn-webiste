@@ -4,6 +4,25 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// Catch and suppress benign ResizeObserver timing warnings that trigger full-screen overlays in React development
+window.addEventListener('error', (e) => {
+  if (e.message && (e.message.includes('ResizeObserver') || e.message.includes('resize-observer'))) {
+    const resizeObserverErrDiv = document.getElementById(
+      'webpack-dev-server-client-overlay-div'
+    );
+    const resizeObserverErr = document.getElementById(
+      'webpack-dev-server-client-overlay'
+    );
+    if (resizeObserverErr) {
+      resizeObserverErr.setAttribute('style', 'display: none');
+    }
+    if (resizeObserverErrDiv) {
+      resizeObserverErrDiv.setAttribute('style', 'display: none');
+    }
+    e.stopImmediatePropagation();
+  }
+});
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

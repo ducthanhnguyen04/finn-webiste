@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './heroSlider.css';
 import Banner1 from "../../assets/banner1.jpg";
 import Banner2 from "../../assets/banner2.jpg";
-import Banner3 from "../../assets/banner3.jpg"; 
+import Banner3 from "../../assets/banner3.jpg";
 import Banner4 from "../../assets/banner4.jpg";
 import Banner5 from "../../assets/banner5.jpg";
 import Banner6 from "../../assets/banner6.jpg";
@@ -23,23 +23,23 @@ const HeroSlider = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => 
+      setCurrentIndex((prevIndex) =>
         prevIndex === slideImages.length - 1 ? 0 : prevIndex + 1
       );
-    }, 4000); 
+    }, 4000);
 
-    return () => clearInterval(interval); 
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="hero-section">
-      <div 
-        className="slider-track" 
+      <div
+        className="slider-track"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {slideImages.map((image, index) => (
-          <div 
-            key={index} 
+          <div
+            key={index}
             className="slide-image"
             style={{ backgroundImage: `url(${image})` }}
           ></div>
@@ -49,7 +49,7 @@ const HeroSlider = () => {
       <div className="hero-overlay-dark"></div>
 
       <div className="hero-content">
-        
+
         <div className="top-right-text">
           <h1 className="brand-serif">MUFA</h1>
           <h2 className="brand-script">tamdao</h2>

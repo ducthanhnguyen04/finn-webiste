@@ -98,3 +98,36 @@
   font-weight: 300;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
+
+/* Responsive styles for mobile & tablet */
+@media screen and (max-width: 768px) {
+  .top-right-text {
+    top: 24px;
+    right: 24px;
+  }
+
+  .brand-serif {
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+  }
+
+  .brand-script {
+    font-size: 2.2rem;
+    margin-top: -8px;
+  }
+
+  .bottom-center-action {
+    bottom: 120px;
+  }
+
+  .btn-booking {
+    padding: 10px 30px;
+    font-size: 15px;
+  }
+
+  .sub-text {
+    font-size: 12px;
+    margin-top: 10px;
+    padding: 0 20px;
+  }
+}

@@ -85,11 +85,12 @@
     position: absolute;
     top: 80px; /* Canh khoảng cách bằng chiều cao header */
     left: -100%; /* Giấu nó sang hẳn bên trái màn hình */
+    visibility: hidden; /* Tránh làm tràn khung hình khi ẩn */
     flex-direction: column;
     background-color: #ffffff;
     width: 100%;
     text-align: center;
-    transition: 0.4s ease; /* Hiệu ứng trượt mượt mà */
+    transition: 0.4s ease, visibility 0.4s ease; /* Hiệu ứng trượt mượt mà */
     box-shadow: 0 10px 15px rgba(0,0,0,0.1);
     padding: 30px 0;
     gap: 30px;
@@ -99,6 +100,7 @@
   /* Khi được click (thêm class .active), trượt từ trái vào */
   .nav-menu.active {
     left: 0; 
+    visibility: visible;
   }
 
   /* Làm chữ to hơn một chút trên mobile cho dễ bấm */
