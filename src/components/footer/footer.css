@@ -1,0 +1,154 @@
+.footer {
+  background-color: #ffffff;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.footer-container {
+  max-width: 700px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-info {
+  margin-bottom: 25px;
+}
+
+.footer-title {
+  color: #631f24;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  letter-spacing: -0.5px;
+}
+
+.footer-address {
+  color: #5c2c2c;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.footer-hours {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.hours-title {
+  color: #5c2c2c;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.hours-detail {
+  color: #5c2c2c;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.footer-contact-item {
+  color: #5c2c2c;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.footer-contact-item a {
+  color: #5c2c2c;
+  text-decoration: none;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.footer-contact-item a:hover {
+  color: #a32a2a;
+  text-decoration: underline;
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin: 10px 0 40px 0;
+}
+
+.footer-socials a {
+  display: inline-flex;
+  border-radius: 50%;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.footer-socials a:hover {
+  transform: translateY(-5px) scale(1.12);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.social-svg {
+  display: block;
+  width: 44px;
+  height: 44px;
+}
+
+.footer-map {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.map-frame {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 36px rgba(92, 44, 44, 0.12);
+  border: 1px solid rgba(92, 44, 44, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  background-color: #5c2c2c;
+  aspect-ratio: 1 / 1; /* Keep map square as shown in the original design */
+}
+
+.map-frame:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(92, 44, 44, 0.2);
+}
+
+.map-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 576px) {
+  .footer {
+    padding: 40px 15px;
+  }
+  
+  .footer-title {
+    font-size: 24px;
+  }
+  
+  .footer-address,
+  .hours-title,
+  .hours-detail,
+  .footer-contact-item {
+    font-size: 16px;
+  }
+  
+  .footer-socials {
+    gap: 16px;
+    margin: 10px 0 30px 0;
+  }
+  
+  .social-svg {
+    width: 38px;
+    height: 38px;
+  }
+}
