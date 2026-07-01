@@ -20,7 +20,6 @@ const slideImages = [
 
 const HeroSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) =>
@@ -30,7 +29,9 @@ const HeroSlider = () => {
 
     return () => clearInterval(interval);
   }, []);
-
+  const handleRedirectBooking = () => {
+    window.open("https://m.me/MufaTamDao");
+  }
   return (
     <div className="hero-section">
       <div
@@ -56,7 +57,7 @@ const HeroSlider = () => {
         </div>
 
         <div className="bottom-center-action">
-          <button className="btn-booking">Đặt bàn</button>
+          <button className="btn-booking" onClick={handleRedirectBooking}>Đặt bàn</button>
           <p className="sub-text">Nhà hàng farm-to-table nấm tươi đầu tiên tại Việt Nam.</p>
         </div>
 

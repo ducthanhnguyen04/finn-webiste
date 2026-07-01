@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import "./home.css";
 import HeroSlider from "../../components/heroSlider/heroSlider";
 import vct1 from "../../assets/vct/VCT 1.png";
@@ -48,7 +49,7 @@ import art4 from "../../assets/art/12.png";
 
 
 // Custom Slider Component for each image spot
-const ImageSlider = ({ images, title }) => {
+const ImageSlider = ({ images, title, id }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const handlePrev = () => {
@@ -64,7 +65,7 @@ const ImageSlider = ({ images, title }) => {
     };
 
     return (
-        <div className="image-slider-container">
+        <div className="image-slider-container" id={id}>
             <div
                 className="image-slider-track"
                 style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -104,16 +105,32 @@ const ImageSlider = ({ images, title }) => {
     );
 };
 
-// Define 6 sliding sections, using duplicated image lists for placeholders
+// Define 5 sliding sections with corresponding IDs
 const slidersData = [
-    { id: 1, title: "Về chúng tôi", images: [vct1, vct2, vct3, vct4, vct5] },
-    { id: 2, title: "Thực đơn", images: [menu1, menu2, menu3, menu4, menu5, menu6, menu7, menu8, menu9, menu10, menu11, menu12, menu13, menu14, menu15, menu16, menu17, menu18, menu19] },
-    { id: 3, title: "Báo chí", images: [bc1, bc2, bc3, bc4, bc5, bc6] },
-    { id: 4, title: "Hoạt động", images: [hd1, hd2, hd3, hd4, hd5, hd6, hd7, hd8, hd9, hd10] },
-    { id: 5, title: "Nghệ thuật", images: [art1, art2, art3, art4] },
+    { id: 1, sectionId: "about-section", title: "Về chúng tôi", images: [vct1, vct2, vct3, vct4, vct5] },
+    { id: 2, sectionId: "menu-section", title: "Thực đơn", images: [menu1, menu2, menu3, menu4, menu5, menu6, menu7, menu8, menu9, menu10, menu11, menu12, menu13, menu14, menu15, menu16, menu17, menu18, menu19] },
+    { id: 3, sectionId: "press-section", title: "Báo chí", images: [bc1, bc2, bc3, bc4, bc5, bc6] },
+    { id: 4, sectionId: "activities-section", title: "Hoạt động", images: [hd1, hd2, hd3, hd4, hd5, hd6, hd7, hd8, hd9, hd10] },
+    { id: 5, sectionId: "art-section", title: "Nghệ thuật", images: [art1, art2, art3, art4] },
 ];
 
 const Home = () => {
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.hash) {
+            const id = location.hash.replace("#", "");
+            const element = document.getElementById(id);
+            if (element) {
+                // Use a short timeout to let the DOM settle, especially during mount
+                const timer = setTimeout(() => {
+                    element.scrollIntoView({ behavior: "smooth" });
+                }, 100);
+                return () => clearTimeout(timer);
+            }
+        }
+    }, [location]);
+
     return (
         <div className="home_wrapper">
             <HeroSlider />
@@ -122,13 +139,14 @@ const Home = () => {
                 {slidersData.map((slider) => (
                     <ImageSlider
                         key={slider.id}
+                        id={slider.sectionId}
                         images={slider.images}
                         title={slider.title}
                     />
                 ))}
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Home;    

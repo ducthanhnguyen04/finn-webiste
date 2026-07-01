@@ -22,6 +22,7 @@
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(92, 44, 44, 0.05);
   transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.5s ease;
+  scroll-margin-top: 100px;
 }
 
 .image-slider-container:hover {
